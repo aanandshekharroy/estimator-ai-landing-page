@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimator AI - Smart Project Estimation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .description {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .video-container {
+            width: 100%;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 36px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .description {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .video-container {
+                margin-bottom: 30px;
+            }
+
+            .cta-button {
+                padding: 16px 32px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 14px 28px;
+                font-size: 1rem;
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Estimator AI</h1>
+            
+            <p class="description">
+                Transform your project planning with AI-powered estimation. Get accurate time and cost predictions 
+                for your next project in seconds, not hours. Our intelligent system learns from thousands of 
+                successful projects to give you reliable estimates you can trust.
+            </p>
+
+            <div class="video-container">
+                <!-- Video with multiple format support and error handling -->
+                <video controls preload="metadata" poster="" style="background-color: #f0f0f0;">
+                    <source src="clipped-estimator-ai.mp4" type="video/mp4">
+                    <source src="clipped-estimator-ai.mov" type="video/quicktime">
+                    <p style="padding: 20px; text-align: center; color: #666;">
+                        Your browser doesn't support video playback. 
+                        <br><a href="clipped-estimator-ai.mov" download style="color: #667eea;">Download the video</a> to watch it.
+                    </p>
+                </video>
+            </div>
+
+            <a href="https://forms.gle/9hBRjaN6VbqbrqFM6" class="cta-button" target="_blank" rel="noopener noreferrer">
+                Get Early Access
+            </a>
+        </div>
+    </div>
+</body>
+</html>
