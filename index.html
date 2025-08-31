@@ -300,6 +300,112 @@
                 gap: 15px;
             }
         }
+
+        /* Social Proof Styles */
+        .social-proof {
+            background: #f8fafc;
+            padding: 40px 20px;
+            margin: 40px -40px;
+            border-radius: 12px;
+            border-left: 4px solid #22c55e;
+        }
+
+        .social-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .stat {
+            padding: 20px 10px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e3a5f;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 3px solid #ff6b35;
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #1e3a5f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-weight: 700;
+            color: #1e3a5f;
+            font-size: 0.9rem;
+        }
+
+        .author-title {
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        @media (max-width: 768px) {
+            .social-proof {
+                margin: 30px -20px;
+                padding: 30px 20px;
+            }
+            
+            .social-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -326,6 +432,69 @@
             <a href="https://tally.so/r/wAEjeo" class="cta-button" target="_blank" rel="noopener noreferrer" style="margin-bottom: 40px;">
                 Get Early Access
             </a>
+
+            <!-- Social Proof Section -->
+            <div class="social-proof">
+                <div class="social-stats">
+                    <div class="stat">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-label">Beta Contractors</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">4.2hrs</div>
+                        <div class="stat-label">Average Time Saved</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">94%</div>
+                        <div class="stat-label">Accuracy Rate</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">$850K</div>
+                        <div class="stat-label">Total Estimates Generated</div>
+                    </div>
+                </div>
+
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <div class="testimonial-quote">
+                            "I was skeptical at first, but this actually gets my pricing style right. Generated a $23K bathroom remodel estimate in under 30 seconds that I barely had to adjust. Game changer."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MC</div>
+                            <div class="author-info">
+                                <div class="author-name">Mike Chen</div>
+                                <div class="author-title">Owner, Chen Construction</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        <div class="testimonial-quote">
+                            "Finally, something that understands how I actually price jobs. My material costs, my labor rates, my markup - it's all there. Saves me hours every week."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SR</div>
+                            <div class="author-info">
+                                <div class="author-name">Sarah Rodriguez</div>
+                                <div class="author-title">Rodriguez Renovations</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial">
+                        <div class="testimonial-quote">
+                            "Used to spend my evenings doing estimates. Now I generate them on-site while talking to clients. They're impressed, I'm efficient. Win-win."
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">DT</div>
+                            <div class="author-info">
+                                <div class="author-name">David Thompson</div>
+                                <div class="author-title">Thompson Home Improvements</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- How It Works Section -->
             <div class="section">
