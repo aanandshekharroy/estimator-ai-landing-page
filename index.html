@@ -338,23 +338,19 @@
             }
         }
 
-        /* Simple Beta Banner */
-        .beta-banner {
-            background: #ff6b35;
-            color: white;
-            padding: 10px 20px;
+        /* Beta Notice */
+        .beta-notice {
+            color: #4a5568;
             text-align: center;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin: -40px -40px 30px -40px;
-            border-radius: 12px 12px 0 0;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 10px 0 40px 0;
         }
 
         @media (max-width: 768px) {
-            .beta-banner {
-                margin: -30px -20px 20px -20px;
-                font-size: 0.85rem;
-                padding: 8px 15px;
+            .beta-notice {
+                margin: 8px 0 30px 0;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -362,10 +358,6 @@
 <body>
     <div class="container">
         <div class="content">
-            <div class="beta-banner">
-                ⚡ LIMITED BETA: Only 50 spots remaining for early access ⚡
-            </div>
-            
             <h1>Win more bids, with lightning speed.</h1>
             
             <p class="description">
@@ -383,9 +375,13 @@
                 </video>
             </div>
 
-            <a href="https://tally.so/r/wAEjeo" class="cta-button" target="_blank" rel="noopener noreferrer" style="margin-bottom: 40px;" onclick="trackCTAClick('main_hero')">
+            <a href="https://tally.so/r/wAEjeo" class="cta-button" target="_blank" rel="noopener noreferrer"  onclick="trackCTAClick('main_hero')">
                 Join the Private Test Group
             </a>
+            
+            <div class="beta-notice">
+                ⚡ LIMITED BETA: Only 50 spots remaining for early access ⚡
+            </div>
 
             <!-- How It Works Section -->
             <div class="section">
@@ -458,6 +454,10 @@
                 <a href="https://tally.so/r/wAEjeo" class="cta-button" target="_blank" rel="noopener noreferrer" onclick="trackCTAClick('bottom_section')">
                     Join the Private Test Group
                 </a>
+                
+                <div class="beta-notice">
+                    ⚡ LIMITED BETA: Only 50 spots remaining for early access ⚡
+                </div>
             </div>
         </div>
     </div>
