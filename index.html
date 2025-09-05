@@ -14,14 +14,57 @@
 
         gtag('config', 'G-4GRWELWKTQ');
         
-        // Function to track CTA clicks
+        // Enhanced traffic source tracking
+        function getTrafficSource() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const source = {
+                utm_source: urlParams.get('utm_source'),
+                utm_medium: urlParams.get('utm_medium'), 
+                utm_campaign: urlParams.get('utm_campaign'),
+                utm_term: urlParams.get('utm_term'),
+                utm_content: urlParams.get('utm_content'),
+                referrer: document.referrer || 'direct'
+            };
+            
+            // Track traffic source as custom event
+            if (source.utm_source || source.referrer !== 'direct') {
+                gtag('event', 'traffic_source', {
+                    'source': source.utm_source || getHostname(source.referrer),
+                    'medium': source.utm_medium || 'referral',
+                    'campaign': source.utm_campaign || 'not_set',
+                    'referrer': source.referrer
+                });
+            }
+            
+            return source;
+        }
+        
+        function getHostname(url) {
+            if (!url || url === 'direct') return 'direct';
+            try {
+                return new URL(url).hostname;
+            } catch {
+                return 'unknown';
+            }
+        }
+        
+        // Function to track CTA clicks with source information
         function trackCTAClick(button_location) {
+            const source = getTrafficSource();
             gtag('event', 'cta_click', {
                 'event_category': 'engagement',
                 'event_label': button_location,
-                'value': 1
+                'value': 1,
+                'traffic_source': source.utm_source || getHostname(source.referrer),
+                'traffic_medium': source.utm_medium || 'referral',
+                'traffic_campaign': source.utm_campaign || 'not_set'
             });
         }
+        
+        // Track page view with source information on load
+        window.addEventListener('load', function() {
+            getTrafficSource();
+        });
     </script>
 
     <style>
