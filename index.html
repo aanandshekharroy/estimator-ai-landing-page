@@ -65,6 +65,46 @@
         window.addEventListener('load', function() {
             getTrafficSource();
         });
+        
+        // Custom video play button functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('probeam-video');
+            const customPlayBtn = document.getElementById('custom-play-btn');
+            
+            if (video && customPlayBtn) {
+                // Handle custom play button click
+                customPlayBtn.addEventListener('click', function() {
+                    video.setAttribute('controls', 'true');
+                    video.play();
+                    customPlayBtn.classList.add('hidden');
+                    
+                    // Track video play event
+                    gtag('event', 'video_play', {
+                        'event_category': 'engagement',
+                        'event_label': 'custom_play_button',
+                        'value': 1
+                    });
+                });
+                
+                // Hide custom button when video starts playing
+                video.addEventListener('play', function() {
+                    customPlayBtn.classList.add('hidden');
+                    video.setAttribute('controls', 'true');
+                });
+                
+                // Show custom button when video is paused
+                video.addEventListener('pause', function() {
+                    customPlayBtn.classList.remove('hidden');
+                    video.removeAttribute('controls');
+                });
+                
+                // Show custom button when video ends
+                video.addEventListener('ended', function() {
+                    customPlayBtn.classList.remove('hidden');
+                    video.removeAttribute('controls');
+                });
+            }
+        });
     </script>
 
     <style>
@@ -133,6 +173,53 @@
             height: auto;
             display: block;
             border-radius: 15px;
+        }
+
+
+        /* Custom overlay play button */
+        .video-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .custom-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 107, 53, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .custom-play-button:hover {
+            background: rgba(255, 107, 53, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.6);
+        }
+
+        .custom-play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 25px solid white;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+
+        .custom-play-button.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .cta-button {
@@ -412,14 +499,17 @@
             </a>
 
             <div class="video-container">
-                <!-- Video with multiple format support and error handling -->
-                <video autoplay loop muted playsinline>
-                    <source src="clipped-estimator-ai-expanded.mp4" type="video/mp4">
-                    <p style="padding: 20px; text-align: center; color: #4a5568;">
-                        Your browser doesn't support video playback. 
-                        <br><a href="clipped-estimator-ai-expanded.mp4" download style="color: #ff6b35;">Download the video</a> to watch it.
-                    </p>
-                </video>
+                <div class="video-wrapper">
+                    <!-- Video with multiple format support and error handling -->
+                    <video id="probeam-video" loop muted playsinline>
+                        <source src="clipped-estimator-ai-expanded.mp4" type="video/mp4">
+                        <p style="padding: 20px; text-align: center; color: #4a5568;">
+                            Your browser doesn't support video playback. 
+                            <br><a href="clipped-estimator-ai-expanded.mp4" download style="color: #ff6b35;">Download the video</a> to watch it.
+                        </p>
+                    </video>
+                    <div class="custom-play-button" id="custom-play-btn"></div>
+                </div>
             </div>
 
             <a href="https://tally.so/r/wAEjeo" class="cta-button" target="_blank" rel="noopener noreferrer"  onclick="trackCTAClick('main_hero')">
